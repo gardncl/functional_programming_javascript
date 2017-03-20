@@ -36,9 +36,24 @@ var newReleases = [
 var six = function() {
 	var videos = [];
 
-	// ------------ INSERT CODE HERE! -----------------------------------
-	// Use forEach function to accumulate every video with a rating of 5.0
-	// ------------ INSERT CODE HERE! -----------------------------------
+	newReleases.forEach(function(newRelease) {
+        if (newRelease.rating === 5.0) {
+            videos.push(newRelease);
+        }
+    });
 
 	return videos;
+}
+
+Array.prototype.filter = function(predicateFunction) {
+	var results = [];
+	this.forEach(function(itemInArray) {
+        if (predicateFunction(itemInArray))
+            results.push(itemInArray);
+	});
+	return results;
+};
+
+var seven = function() {
+    return JSON.stringify([1,2,3].filter(function(x) { return x > 2})) === "[3]"
 }
